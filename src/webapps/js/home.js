@@ -38,32 +38,51 @@ function sortTable(n) {
     }
 }
 
-// Table Filtering with Favourites filter support
-function filterTable() {
-    const input = document.getElementById("searchInput");
-    const filter = input.value.toLowerCase();
+function filterContacts() {
+    const input = document.getElementById("searchInput").value.trim().toLowerCase();
+    const favOnly = document.getElementById("favouritesOnly").checked;
     const table = document.getElementById("contactsTable");
     const trs = table.getElementsByTagName("tr");
-    const favOnly = document.getElementById("favouritesOnly").checked;
+
     for (let i = 1; i < trs.length; i++) {
         const tr = trs[i];
-        let show = false;
         const tds = tr.getElementsByTagName("td");
-        for (let j = 0; j < tds.length - 2; j++) { // exclude favourite & actions columns
-            if (tds[j] && tds[j].innerText.toLowerCase().indexOf(filter) > -1) {
-                show = true;
-                break;
-            }
-        }
-        // If favourites filter is on, only show if data-favourite="true"
-        if (favOnly && tr.getAttribute("data-favourite") !== "true") {
-            show = false;
-        }
-        tr.style.display = show ? "" : "none";
+
+        // Adjust these indices if needed: 0 = contactId, 3 = favourite column
+        const contactId = tds[0]?.innerText.toLowerCase() || "";
+        const isFavourite = tr.getAttribute("data-favourite") === "true";
+
+        const matchesSearch = !input || contactId.includes(input);
+        const matchesFavourite = !favOnly || isFavourite;
+
+        tr.style.display = (matchesSearch && matchesFavourite) ? "" : "none";
     }
 }
-
-// Trigger filterTable on favourites checkbox change
 function filterFavourites() {
-    filterTable();
+    filterContacts();
 }
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+      document.querySelector('.nav-menu').classList.toggle('active');
+    });
+
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+      const searchTerm = this.value.toLowerCase();
+      const rows = document.querySelectorAll('#contactsTable tbody tr:not(.no-data)');
+
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(searchTerm) ? '' : 'none';
+      });
+    });
+
+    // View toggle functionality
+    document.querySelectorAll('.view-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+
