@@ -6,42 +6,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Manager - Professional Contact Management System</title>
-  <link rel="stylesheet" href="css/landingpage.css" />
+  <link rel="stylesheet" href="css/landingpage.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-<style>
-
-.image-slider {
-  overflow: hidden;
-  background: #f0f0f0;
-  padding: 20px 0;
-}
-
-.slider-track {
-  display: flex;
-  width: calc(300px * 8); /* Adjust based on number of slides */
-  animation: scrollSlider 40s linear infinite;
-}
-
-.slide {
-  flex: 0 0 auto;
-  width: 300px;
-  margin-right: 20px;
-}
-
-.slide img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-@keyframes scrollSlider {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-
-</style>
 
 </head>
 <body>
@@ -54,20 +20,13 @@
           <span>ContactManager</span>
         </div>
 
-        <div class="nav-menu">
-          <a href="dashboard.jsp" class="nav-link">
-            <i class="fas fa-home"></i>
-            Dashboard
-          </a>
-          <a href="contacts.jsp" class="nav-link active">
+
+          <a href="login.jsp" class="nav-link active">
             <i class="fas fa-users"></i>
             Contacts
           </a>
-          <a href="favorites.jsp" class="nav-link">
-            <i class="fas fa-heart"></i>
-            Favorites
-          </a>
-          <a href="profile.jsp" class="nav-link">
+
+          <a href="login.jsp" class="nav-link">
             <i class="fas fa-user"></i>
             Profile
           </a>
@@ -76,17 +35,13 @@
                                      <i class="fas fa-user"></i>
                                      Login
                                    </a>
-                                   <a href="register.jsp" class="action-btn info">
+                                   <a href="register.jsp" class="action-btn custom">
                                      <i class="fas fa-user"></i>
                                      Register
                                    </a>
-
                  </a>
                </div>
-
-
-
-       </div>
+  </div>
 
         </div>
 
@@ -97,17 +52,7 @@
       </div>
     </nav>
   </header>
-
-
-      <!-- Quick Actions Bar -->
-      <section class="quick-actions">
-        <h1 class="page-title">
-          <i class="fas fa-users"></i>
-          Contact Management
-        </h1>
-
-      </section>
-
+<br>
     </div>
   </main>
 
@@ -121,9 +66,8 @@
     <div class="slide"><img src="images/contact2.png"></div>
      </div>
 </section>
-
-
-
+<br>
+<br>
 <!-- Professional Footer -->
 <footer class="footer">
   <div class="footer-content">
@@ -145,34 +89,6 @@
     </div>
   </div>
 </footer>
-
-
-
-
-  <script>
-    // Mobile menu toggle
-    document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-      document.querySelector('.nav-menu').classList.toggle('active');
-    });
-
-    // Search functionality
-    document.getElementById('searchInput').addEventListener('keyup', function() {
-      const searchTerm = this.value.toLowerCase();
-      const rows = document.querySelectorAll('#contactsTable tbody tr:not(.no-data)');
-
-      rows.forEach(row => {
-        const text = row.textContent.toLowerCase();
-        row.style.display = text.includes(searchTerm) ? '' : 'none';
-      });
-    });
-
-    // View toggle functionality
-    document.querySelectorAll('.view-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
-  </script>
+   <script src="js/landingpage.js"></script>
 </body>
 </html>
