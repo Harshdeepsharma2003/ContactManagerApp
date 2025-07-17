@@ -61,28 +61,17 @@ function filterContacts() {
 function filterFavourites() {
     filterContacts();
 }
-    // Mobile menu toggle
-    document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-      document.querySelector('.nav-menu').classList.toggle('active');
-    });
 
-    // Search functionality
-    document.getElementById('searchInput').addEventListener('keyup', function() {
-      const searchTerm = this.value.toLowerCase();
-      const rows = document.querySelectorAll('#contactsTable tbody tr:not(.no-data)');
+document.getElementById('searchInput').addEventListener('keyup', function() {
+    const searchTerm = this.value.toLowerCase().trim();
+    const rows = document.querySelectorAll('#contactsTable tbody tr:not(.no-data)');
 
-      rows.forEach(row => {
-        const text = row.textContent.toLowerCase();
-        row.style.display = text.includes(searchTerm) ? '' : 'none';
-      });
+    rows.forEach(row => {
+        const nameCell = row.querySelector('.name-cell');
+        const nameText = nameCell ? nameCell.textContent.toLowerCase().trim() : '';
+        row.style.display = nameText.includes(searchTerm) ? '' : 'none';
     });
+});
 
-    // View toggle functionality
-    document.querySelectorAll('.view-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
 
 
