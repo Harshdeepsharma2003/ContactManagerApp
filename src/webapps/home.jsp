@@ -20,29 +20,24 @@
                     <span>ContactManager</span>
                 </div>
 
-                <div class="nav-menu">
-                    <a href="landingpage.jsp" class="nav-link">
-                        <i class="fas fa-home"></i>
-                        Home
-                    </a>
-                    <a href="contacts.jsp" class="nav-link active">
-                        <i class="fas fa-users"></i>
-                        Contacts
-                    </a>
-                </div>
-
-                <div class="nav-actions">
-                    <div class="user-info">
-                        <i class="fas fa-user-circle"></i>
-                        <span class="username">Welcome</span>
-                    </div>
-                    <form action="LogoutServlet" method="get" class="logout-form">
-                        <button type="submit" class="logout-btn">
-                            <i class="fas fa-sign-out-alt"></i>
-                            Logout
-                        </button>
-                    </form>
-                </div>
+                             <div class="action-buttons">
+                                 <a href="updatecontact.jsp" class="action-btn primary">
+                                     <i class="fas fa-edit"></i>
+                                     Update Contact
+                                 </a>
+                                 <a href="deletecontacts.jsp" class="action-btn warning">
+                                     <i class="fas fa-trash"></i>
+                                     Delete Contact
+                                 </a>
+                                 <a href="updateprofile.jsp" class="action-btn info">
+                                     <i class="fas fa-user-edit"></i>
+                                     Update Profile
+                                 </a>
+                                 <a href="deleteaccount.jsp" class="action-btn danger">
+                                     <i class="fas fa-user-times"></i>
+                                     Delete Profile
+                                 </a>
+                             </div>
 
                 <div class="mobile-menu-toggle">
                     <i class="fas fa-bars"></i>
@@ -53,28 +48,38 @@
 
             <!-- Quick Actions Bar -->
             <section class="quick-actions">
-                <h1 class="page-title">
-                    <i class="fas fa-users"></i>
-                    Contact Management
-                </h1>
-                <div class="action-buttons">
-                    <a href="updatecontact.jsp" class="action-btn primary">
-                        <i class="fas fa-edit"></i>
-                        Update Contact
-                    </a>
-                    <a href="deletecontacts.jsp" class="action-btn warning">
-                        <i class="fas fa-trash"></i>
-                        Delete Contact
-                    </a>
-                    <a href="updateprofile.jsp" class="action-btn info">
-                        <i class="fas fa-user-edit"></i>
-                        Update Profile
-                    </a>
-                    <a href="deleteaccount.jsp" class="action-btn danger">
-                        <i class="fas fa-user-times"></i>
-                        Delete Profile
-                    </a>
-                </div>
+
+            <div class="nav-menu">
+                                <a href="landingpage.jsp" class="nav-link">
+                                    <i class="fas fa-home"></i>
+                                    Home
+                                </a>
+                                <a href="contacts.jsp" class="nav-link active">
+                                    <i class="fas fa-users"></i>
+                                    Contacts
+                                </a>
+
+                           <div class="nav-actions">
+                               <%
+                                   String userId = (String) session.getAttribute("userid");
+                                   if (userId != null) {
+                               %>
+                                   <div class="user-info">
+                                       <i class="fas fa-user-circle"></i>
+                                       Welcome, User Id <strong><%= userId %></strong>
+                                   </div>
+                               <%
+                                   }
+                               %>
+
+                               <form action="LogoutServlet" method="get" class="logout-form">
+                                   <button type="submit" class="logout-btn">
+                                       <i class="fas fa-sign-out-alt"></i>
+                                       Logout
+                                   </button>
+                               </form>
+                           </div>
+
             </section>
 
             <!-- Add Contact Form -->
@@ -178,14 +183,7 @@
                             <i class="fas fa-search"></i>
                             <input type="text" placeholder="Search contacts..." id="searchInput">
                         </div>
-                        <div class="view-options">
-                            <button class="view-btn active" data-view="table">
-                                <i class="fas fa-table"></i>
-                            </button>
-                            <button class="view-btn" data-view="grid">
-                                <i class="fas fa-th"></i>
-                            </button>
-                        </div>
+
                     </div>
                 </div>
 
@@ -207,7 +205,7 @@
                             <c:forEach var="contact" items="${contactList}">
                                 <tr>
                                     <td>
-                                        <div class="contact-name">
+                                        <div class="contact-name name-cell">
                                             <div class="avatar">
                                                 <i class="fas fa-user"></i>
                                             </div>
