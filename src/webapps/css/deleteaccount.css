@@ -1,71 +1,209 @@
-  body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f7fa;
-            margin: 0;
-            padding: 0;
-        }
-        .delete-profile-container {
-            max-width: 400px;
-            margin: 80px auto;
-            background: #fff;
-            padding: 30px 28px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        h2 {
-            text-align: center;
-            color: #d32f2f;
-            margin-bottom: 25px;
-            letter-spacing: 1.1px;
-        }
-        label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #333;
-        }
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px 14px;
-            border: 1.8px solid #ccc;
-            border-radius: 6px;
-            font-size: 1rem;
-            margin-bottom: 16px;
-            transition: border-color 0.3s ease;
-        }
-        input[type="text"]:focus,
-        input[type="password"]:focus {
-            border-color: #d32f2f;
-            outline: none;
-        }
-        .form-actions {
-            text-align: center;
-            margin-top: 20px;
-        }
-        button {
-            background-color: #d32f2f;
-            color: white;
-            border: none;
-            padding: 12px 38px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 7px;
-            cursor: pointer;
-            transition: background-color 0.25s ease;
-        }
-        button:hover {
-            background-color: #a82828;
-        }
-        #message {
-            margin-top: 18px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-        #message.error {
-            color: #d32f2f;
-        }
-        #message.success {
-            color: #388e3c;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* ----- Container Styles ----- */
+.delete-profile-container,
+.form-section {
+    max-width: 400px;
+    margin: 80px auto 0 auto;
+    background: #fff;
+    padding: 30px 28px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+    /* .form-section already defines similar bg, radius, shadow, and spacing */
+}
+
+/* ----- Section Header Styling ----- */
+.section-header {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+.section-header h2 {
+    text-align: center;
+    color: #d32f2f;
+    margin-bottom: 8px;
+    margin-top: 0;
+    letter-spacing: 1.1px;
+    font-size: 2rem;
+}
+.section-description {
+    color: #555;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0;
+}
+
+/* ----- Form Fields ----- */
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+.form-group {
+    margin-bottom: 18px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 70%;               /* Try 70% or your preferred value */
+    padding: 7px 10px;        /* Less padding for smaller height */
+    font-size: 0.95rem;       /* Slightly smaller font if desired */
+    /* ... rest of your styles ... */
+    margin-bottom: 0;
+    transition: border-color 0.3s ease;
+    display: block;           /* Ensure block display for margin auto */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #d32f2f;
+    outline: none;
+}
+
+/* ----- Button & Actions ----- */
+.form-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+button,
+.submit-btn {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 12px 38px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+button:hover,
+.submit-btn:hover {
+    background-color: #a82828;
+}
+
+/* ----- Message ----- */
+#message {
+    margin-top: 18px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+}
+#message.error {
+    color: #d32f2f;
+}
+#message.success {
+    color: #388e3c;
+}
+
+/* Responsive tweaks if desired */
+@media (max-width: 480px) {
+    .form-section, .delete-profile-container {
+        margin: 28px 3%;
+        padding: 18px 3%;
+    }
+    .section-header h2 {
+        font-size: 1.25rem;
+    }
+}
+
+
+/* Header Styles */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    padding: 1rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-info {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logout-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logout-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.mobile-menu-toggle {
+    display: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
