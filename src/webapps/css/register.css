@@ -1,155 +1,317 @@
 
+/* Reset & base */
+* {
+    box-sizing: border-box;
+}
 
-        /* Reset & base */
-        * {
-            box-sizing: border-box;
-        }
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #4a90e2, #50e3c2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            color: #333;
-        }
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #4a90e2, #50e3c2);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
-        /* Container for the form and features */
-        .main-container {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-            width: 360px;
-            max-width: 90vw;
-            padding: 30px 40px;
-            text-align: center;
-        }
+/* Main container */
+.main-container {
+    background-color: rgba(225,225,255,0.85);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 900px; /* Increased from 600px */
+    width: 90%; /* Add this for better responsiveness */
+    margin: 3rem auto;
+}
 
-        /* Header styling */
-        .register-header .logo {
-            font-size: 48px;
-            color: #4a90e2;
-            margin-bottom: 10px;
-        }
-        .register-header h1 {
-            margin: 0;
-            font-weight: 700;
-            font-size: 28px;
-            color: #222;
-        }
-        .register-header p {
-            margin: 4px 0 24px;
-            color: #666;
-            font-size: 14px;
-        }
+/* Header styling */
+.register-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
 
-        /* Form styles */
-        form.register-form {
-            text-align: left;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 600;
-            color: #444;
-        }
-        .input-container {
-            position: relative;
-        }
-        .input-icon {
-            position: absolute;
-            top: 50%;
-            left: 12px;
-            transform: translateY(-50%);
-            color: #999;
-        }
-        input[type="text"],
-        input[type="password"],
-        input[type="email"] {
-            width: 100%;
-            padding: 10px 12px 10px 36px;
-            border: 1.8px solid #ccc;
-            border-radius: 6px;
-            font-size: 15px;
-            transition: border-color 0.3s;
-        }
-        input[type="text"]:focus,
-        input[type="password"]:focus,
-        input[type="email"]:focus {
-            border-color: #4a90e2;
-            outline: none;
-        }
-        .toggle-password {
-            position: absolute;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            color: #666;
-            font-size: 16px;
-        }
+.register-header h1 {
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #2c3e50;
+    background: linear-gradient(135deg, #4a90e2, #50e3c2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 
-        /* Button */
-        .register-btn {
-            width: 100%;
-            background-color: #4a90e2;
-            color: white;
-            padding: 12px 0;
-            font-size: 16px;
-            font-weight: 700;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        .register-btn:hover {
-            background-color: #357ABD;
-        }
-        .btn-text {
-            position: relative;
-            z-index: 2;
-        }
-        .btn-loader {
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: none; /* toggle with JS if needed */
-        }
-        .spinner {
-            border: 3px solid #fff;
-            border-top: 3px solid #357ABD;
-            border-radius: 50%;
-            width: 16px;
-            height: 16px;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg);}
-            100% { transform: rotate(360deg);}
-        }
+.register-header p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 1rem;
+    font-weight: 500;
+}
 
-        /* Error container */
-        .error-container {
-            margin-top: 18px;
-            color: #d93025;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-        }
-        .error-message i {
-            font-size: 18px;
-        }
+/* Form styling */
+.register-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 40px; /* Increased gap: 30px vertical, 40px horizontal */
+    text-align: left;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
 
+label {
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 16px; /* Increased from 12px */
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 18px; /* Slightly larger icon */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 14px 16px 14px 40px; /* Increased padding */
+    border: 1.8px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px; /* Increased font size */
+    transition: border-color 0.3s;
+    min-height: 50px; /* Add minimum height */
+}
+
+input:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
+    transform: translateY(-2px);
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #6b7280;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.toggle-password:hover {
+    background-color: rgba(74, 144, 226, 0.1);
+    color: #4a90e2;
+}
+
+/* Button styling */
+.register-btn {
+    width: 100%;
+    background-color: #4a90e2;
+    color: white;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    overflow: hidden;
+    grid-column: 1 / -1; /* This makes buttons span both columns */
+}
+
+.register-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(74, 144, 226, 0.3);
+}
+
+.register-btn:active {
+    transform: translateY(0);
+}
+
+.btn-text {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-loader {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+}
+
+.spinner {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid #ffffff;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Button variations */
+.register-btn.secondary {
+    background: linear-gradient(135deg, #6c757d, #5a6268);
+    margin-top: 1rem;
+}
+
+.register-btn.secondary:hover {
+    box-shadow: 0 10px 25px rgba(108, 117, 125, 0.3);
+}
+
+/* Error container */
+.error-container {
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.error-message {
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #dc2626;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.error-message i {
+    font-size: 1.1rem;
+    color: #ef4444;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Success message styling */
+.success-message {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #16a34a;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+}
+
+.divider span {
+    padding: 0 1rem;
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 900px) { /* Increased from 768px */
+    .register-form {
+        grid-template-columns: 1fr;
+    }
+
+    .main-container {
+        width: 95%;
+        padding: 30px 20px;
+    }
+}
+.register-header h1 {
+    font-size: 1.75rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    font-size: 0.95rem;
+}
+
+.register-btn {
+    padding: 0.875rem;
+    font-size: 1rem;
+}
+}
+
+/* Animation for form elements */
+.form-group {
+    animation: slideUp 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.2s; }
+.form-group:nth-child(3) { animation-delay: 0.3s; }
+.form-group:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Container animation */
+.main-container {
+    animation: scaleIn 0.5s ease forwards;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+@keyframes scaleIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
