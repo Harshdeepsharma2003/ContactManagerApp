@@ -1,68 +1,86 @@
+/* General Reset */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f6fa;
+    color: #333;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f9fafb;
-            margin: 0;
-            padding: 0;
-        }
-        .delete-container {
-            max-width: 400px;
-            margin: 80px auto;
-            background: #fff;
-            padding: 30px 28px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        h2 {
-            text-align: center;
-            color: #c62828;
-            margin-bottom: 25px;
-        }
-        label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #333;
-        }
-        input[type="number"] {
-            width: 100%;
-            padding: 10px 14px;
-            border: 1.8px solid #ccc;
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-        input[type="number"]:focus {
-            border-color: #c62828;
-            outline: none;
-        }
-        .form-actions {
-            margin-top: 28px;
-            text-align: center;
-        }
-        button {
-            background-color: #c62828;
-            color: white;
-            border: none;
-            padding: 12px 38px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 7px;
-            cursor: pointer;
-            transition: background-color 0.25s ease;
-        }
-        button:hover {
-            background-color: #9b1c1c;
-        }
-        #message {
-            margin-top: 18px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-        #message.error {
-            color: #d32f2f;
-        }
-        #message.success {
-            color: #388e3c;
-        }
+/* Form Section */
+.form-section {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 25px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Section Header */
+.section-header h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #e74c3c;
+}
+
+.section-description {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #e74c3c;
+    outline: none;
+}
+
+/* Form Actions */
+.form-actions {
+    text-align: right;
+}
+
+.submit-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Message Div */
+#message {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #2c3e50;
+}
